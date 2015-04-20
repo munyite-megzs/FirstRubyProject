@@ -3,6 +3,9 @@ class Article < ActiveRecord::Base
 	has_many :taggings
 
 	has_many :tags, through: :taggings
+	has_attached_file :image
+	validates_attachment :image, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] }
+
 
 #method to display the tags
 #converting all our objects to an array of tag names
